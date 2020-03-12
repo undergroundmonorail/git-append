@@ -1,0 +1,16 @@
+#!/bin/bash
+message=$(git log -1 --pretty=%B)
+
+function usage() {
+    echo ""
+    echo "Usage: git append"
+    echo ""
+    echo " See 'man git-append' for further information"
+}
+
+if (( "$#" )); then
+    usage
+    exit 0
+fi
+
+git commit --amend -am "$message"
